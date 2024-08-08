@@ -8,14 +8,15 @@ const Home = async () => {
   try {
     properties = await fetchProperties();
     if (properties.length === 0) {
-      error = "No properties found.";
+      error = "Nenhum condomínio foi encontrado.";
     }
   } catch (err) {
-    error = "Error fetching properties. Please try again later.";
+    error =
+      "Erro ao buscasr as propriedades. Por favor, tente novamente mais tarde.";
   }
   return (
     <div>
-      <h1>Properties</h1>
+      <h1>Condomínios</h1>
       {error ? (
         <p>{error}</p>
       ) : (
