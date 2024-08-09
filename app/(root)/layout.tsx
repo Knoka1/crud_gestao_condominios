@@ -1,5 +1,4 @@
 import React from "react";
-import Home from "./page";
 import HeaderBar from "@/components/MenuLayout/HeaderBar";
 
 const layout = ({

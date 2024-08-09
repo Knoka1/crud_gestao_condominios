@@ -18,8 +18,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Meu Condomínio gestão",
-  description: "Gestão de condomínios para grandes empresas",
+  title: "Condomínio.com - Gestão de condomínios",
+  description: "Gestão de condomínios rápido e fácil para grandes empresas",
 };
 
 export default function RootLayout({

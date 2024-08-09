@@ -8,8 +8,8 @@ import HeaderSignIn from "../HeaderSignIn";
 
 const HeaderBar = () => {
   return (
-    <div className="p-2 bg-white">
-      <div className="flex justify-between w-full items-center">
+    <div className=" bg-white z-20">
+      <div className="flex justify-between w-full items-center mt-2">
         <Navbar />
         {/* Logo */}
         {/* bg-white neutraliza o hover já que queremos manter esse comportamento para outros botões shadcn */}
