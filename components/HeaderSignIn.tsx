@@ -8,7 +8,9 @@ const HeaderSignIn = () => {
     return user ? (
       <Avatar />
     ) : (
-      <Button className="bg-slate-500 hover:bg-cyan-500">SignIn</Button>
+      <Button className="hover:bg-cyan-500 rounded-full bg-slate-100 text-cyan-500 hover:text-white">
+        SignIn
+      </Button>
     );
   }
 };
