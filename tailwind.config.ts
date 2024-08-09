@@ -20,7 +20,8 @@ const config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
-        pacifico: ["Pacifico", "cursive"],
+        pacifico: ["var(--font-pacifico)"],
+        manrope: ["var(--font-manrope)"],
       },
       colors: {
         "black-100": "#2B2C35",
