@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { fetchPropertyById } from "@/lib/api/fetchPropertyById";
+import { deletePropertyById } from "@/lib/api/deletePropertyById";
 
 interface IPropertyPageProps {
   params: { id: string };
@@ -32,6 +33,9 @@ const PropertyPage = ({ params }: IPropertyPageProps) => {
 
     fetchProperty();
   }, []);
+  const handleDelete = async (id: number) => {
+    await deletePropertyById(id);
+  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
@@ -47,6 +51,9 @@ const PropertyPage = ({ params }: IPropertyPageProps) => {
         Start Date:{" "}
         {new Date(property.inicioAdministracao).toLocaleDateString()}
       </p>
+      <button onClick={() => handleDelete(Number(params?.id))}>
+        Delete Property
+      </button>
     </div>
   );
 };
