@@ -4,6 +4,7 @@ import Image from "next/image";
 import logo from "@/public/propertyLogo.png";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import HeaderSignIn from "../HeaderSignIn";
 
 const HeaderBar = () => {
   return (
@@ -23,7 +24,7 @@ const HeaderBar = () => {
             </h4>
           </Link>
         </Button>
-        AvatarIcon
+        <HeaderSignIn />
       </div>
       <hr className="mt-2" />
     </div>
