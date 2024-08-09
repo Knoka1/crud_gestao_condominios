@@ -1,3 +1,4 @@
+import Hero from "@/components/Hero";
 import { fetchProperties } from "@/lib/api/fetchProperties";
 import React, { useEffect, useState } from "react";
 
@@ -16,24 +17,28 @@ const Home = async () => {
   }
   return (
     <div>
+      <Hero />
+
       <h1>Condomínios</h1>
       {error ? (
         <p>{error}</p>
       ) : (
-        <ul>
-          {properties.map((property) => (
-            <li key={property.id}>
-              <h2>{property.nome}</h2>
-              <p>Address: {property.endereco}</p>
-              <p>CNPJ: {property.cnpj}</p>
-              <p>Units: {property.quantidadeUnidades}</p>
-              <p>
-                Start Date:{" "}
-                {new Date(property.inicioAdministracao).toLocaleDateString()}
-              </p>
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul>
+            {properties.map((property) => (
+              <li key={property.id}>
+                <h2>{property.nome}</h2>
+                <p>Address: {property.endereco}</p>
+                <p>CNPJ: {property.cnpj}</p>
+                <p>Units: {property.quantidadeUnidades}</p>
+                <p>
+                  Start Date:{" "}
+                  {new Date(property.inicioAdministracao).toLocaleDateString()}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </>
       )}
     </div>
   );
