@@ -10,10 +10,13 @@ const HeaderBar = () => {
     <div className="p-2">
       <div className="flex justify-between w-full items-center">
         <Navbar />
+        {/* Logo */}
         <Button variant="ghost" className="outline-none" asChild>
           <Link href="/">
             <Image src={logo} alt="House Logo" className="h-10 w-14" />
-            <h4 className="hidden sm:inline">Meu Condomínio.com</h4>
+            <h4 className="hidden sm:inline font-pacifico text-cyan-600">
+              Condominio.com
+            </h4>
           </Link>
         </Button>
         AvatarIcon
