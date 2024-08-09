@@ -1,7 +1,22 @@
-import React from "react";
+"use client";
+import React, { MouseEventHandler } from "react";
 
-const CustomButton = () => {
-  return <div>CustomButton</div>;
+interface CustomButtonProps {
+  title: string;
+  className?: string;
+  handleClick?: MouseEventHandler<HTMLButtonElement>;
+}
+const CustomButton = ({ title, className, handleClick }: CustomButtonProps) => {
+  return (
+    <button
+      disabled={false}
+      type="button"
+      className={`custom-btn ${className}`}
+      onClick={handleClick}
+    >
+      <span className={`flex-1`}>{title}</span>
+    </button>
+  );
 };
 
 export default CustomButton;
