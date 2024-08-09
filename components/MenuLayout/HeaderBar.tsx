@@ -1,10 +1,9 @@
 import React from "react";
 import Navbar from "./Navbar";
-import Image from "next/image";
-import logo from "@/public/propertyLogo.png";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import HeaderSignIn from "../HeaderSignIn";
+import Logo from "./Logo";
 
 const HeaderBar = () => {
   return (
@@ -19,9 +18,7 @@ const HeaderBar = () => {
           asChild
         >
           <Link href="/">
-            <h4 className="hidden sm:inline font-pacifico text-cyan-600">
-              Condominio.com
-            </h4>
+            <Logo />
           </Link>
         </Button>
         <HeaderSignIn />
