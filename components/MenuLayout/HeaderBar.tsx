@@ -7,13 +7,17 @@ import Link from "next/link";
 
 const HeaderBar = () => {
   return (
-    <div className="p-2">
+    <div className="p-2 bg-white">
       <div className="flex justify-between w-full items-center">
         <Navbar />
         {/* Logo */}
-        <Button variant="ghost" className="outline-none" asChild>
+        {/* bg-white neutraliza o hover já que queremos manter esse comportamento para outros botões shadcn */}
+        <Button
+          variant="ghost"
+          className="outline-none hover:bg-white "
+          asChild
+        >
           <Link href="/">
-            <Image src={logo} alt="House Logo" className="h-10 w-14" />
             <h4 className="hidden sm:inline font-pacifico text-cyan-600">
               Condominio.com
             </h4>
