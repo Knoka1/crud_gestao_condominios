@@ -9,10 +9,15 @@ const Hero = () => {
     <div className="hero">
       <div className="flex-1 pt-20 padding-x">
         <h1 className="hero__title">
-          Visualize, gerencie ou acompanhe seus condomínios - rápido e fácil!
+          <span className="text-cyan-600">Visualize</span>,{" "}
+          <span className="text-cyan-600">Gerencie</span> e{" "}
+          <span className="text-cyan-600">Acompanhe</span> seus condomínios -
+          Rápido e Fácil!
         </h1>
         <p className="hero__subtitle">
-          Facilite a sua experiência de gestão de suas propriedades, sem esforço
+          Facilite a sua experiência de{" "}
+          <span className="text-cyan-600">gestão</span> de suas propriedades,
+          <span className="text-cyan-600"> sem esforço</span>.
         </p>
         <CustomButton
           title="Explorar Condomínios"
