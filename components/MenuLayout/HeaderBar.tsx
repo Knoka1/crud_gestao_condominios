@@ -8,7 +8,7 @@ import Logo from "./Logo";
 const HeaderBar = () => {
   return (
     <div className=" bg-white z-20">
-      <div className="flex justify-between w-full items-center mt-2">
+      <div className="flex justify-evenly md:justify-normal w-full items-center mt-2">
         <Navbar />
         {/* Logo */}
         {/* bg-white neutraliza o hover já que queremos manter esse comportamento para outros botões shadcn */}
@@ -21,7 +21,9 @@ const HeaderBar = () => {
             <Logo />
           </Link>
         </Button>
-        <HeaderSignIn />
+        <div className="md:flex md:flex-1 md:justify-end">
+          <HeaderSignIn />
+        </div>
       </div>
       <hr className="mt-2" />
     </div>
