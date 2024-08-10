@@ -7,7 +7,7 @@ const Hero = () => {
   const handleScroll = () => {};
   return (
     <div className="hero">
-      <div className="flex-1 pt-20 padding-x">
+      <div className="flex-1 pt-10 md:pt-16 padding-x">
         <h1 className="hero__title">
           <span className="text-cyan-600">Visualize</span>,{" "}
           <span className="text-cyan-600">Gerencie</span> e{" "}
