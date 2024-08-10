@@ -1,12 +1,13 @@
 import React from "react";
-import { Button } from "./ui/button";
-import Avatar from "./Avatar";
+import { Button } from "../ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import AvatarCustom from "../UiCustom/AvatarCustom";
 
 const HeaderSignIn = () => {
-  const user = false;
+  const user = true;
   {
     return user ? (
-      <Avatar />
+      <AvatarCustom />
     ) : (
       <Button className="hover:bg-cyan-500 rounded-full bg-slate-100 text-cyan-500 hover:text-white">
         SignIn
