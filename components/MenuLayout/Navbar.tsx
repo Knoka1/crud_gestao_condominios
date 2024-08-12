@@ -6,14 +6,14 @@ import Link from "next/link";
 import { navLinks } from "@/constants";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { GiHamburgerMenu } from "react-icons/gi";
 const Navbar = () => {
   const pathname = usePathname();
   return (
     <section className="w-fulll max-w-[264px]">
       <Sheet>
         <SheetTrigger>
-          <RxHamburgerMenu className="w-5 h-5" />
+          <GiHamburgerMenu size={20} className="mt-1" />
           {/* <Image
             src="/icons/hamburger.svg"
             width={30}
