@@ -1,12 +1,20 @@
 "use client";
 import React, { MouseEventHandler } from "react";
-
+import { FaArrowAltCircleRight } from "react-icons/fa";
 interface CustomButtonProps {
   title: string;
   className?: string;
   handleClick?: MouseEventHandler<HTMLButtonElement>;
+  textStyles?: string;
+  rightIcon?: boolean;
 }
-const CustomButton = ({ title, className, handleClick }: CustomButtonProps) => {
+const CustomButton = ({
+  title,
+  className,
+  handleClick,
+  textStyles,
+  rightIcon,
+}: CustomButtonProps) => {
   return (
     <button
       disabled={false}
@@ -14,7 +22,12 @@ const CustomButton = ({ title, className, handleClick }: CustomButtonProps) => {
       className={`custom-btn ${className}`}
       onClick={handleClick}
     >
-      <span className={`flex-1`}>{title}</span>
+      <span className={`flex-1 ${textStyles}`}>{title}</span>
+      {rightIcon && (
+        <div className="relative">
+          <FaArrowAltCircleRight size={20} />
+        </div>
+      )}
     </button>
   );
 };
