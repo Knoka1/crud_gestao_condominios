@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../ui/sheet";
-import Image from "next/image";
 import Link from "next/link";
 import { navLinks } from "@/constants";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { GiHamburgerMenu } from "react-icons/gi";
+import Logo from "./Logo";
 const Navbar = () => {
   const pathname = usePathname();
   return (
@@ -14,32 +14,17 @@ const Navbar = () => {
       <Sheet>
         <SheetTrigger>
           <GiHamburgerMenu size={20} className="mt-1" />
-          {/* <Image
-            src="/icons/hamburger.svg"
-            width={30}
-            height={30}
-            alt="menu"
-            className="cursor-pointer"
-          /> */}
         </SheetTrigger>
         <SheetContent side="left" className="border-none bg-white">
           <Link
             href="/"
             className="cursor-pointer flex items-center gap-1 px-4"
           >
-            {/* <Image 
-          src="/icons/logo.svg"
-          width={34}
-          height={34}
-          alt="Horizon logo"
-        /> */}
-            <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1">
-              Horizon
-            </h1>
+            <Logo />
           </Link>
           <div className="mobilenav-sheet">
             <SheetClose asChild>
-              <nav className="flex h-full flex-col gap-6 pt-16 text-white">
+              <nav className="flex h-full flex-col gap-6 pt-16">
                 {navLinks.map((item) => {
                   const isActive =
                     pathname === item.route ||
@@ -54,18 +39,9 @@ const Navbar = () => {
                           "bg-bank-gradient": isActive,
                         })}
                       >
-                        {/* <Image 
-                      src={item.imgURL}
-                      alt={item.label}
-                      width={20}
-                      height={20}
-                      className={cn({
-                        'brightness-[3] invert-0': isActive
-                      })}
-                    /> */}
                         <p
                           className={cn("text-16 font-semibold text-black-2", {
-                            "text-white": isActive,
+                            "text-cyan-500": isActive,
                           })}
                         >
                           {item.label}
@@ -74,7 +50,6 @@ const Navbar = () => {
                     </SheetClose>
                   );
                 })}
-                USER
               </nav>
             </SheetClose>
           </div>
