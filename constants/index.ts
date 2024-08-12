@@ -1,3 +1,7 @@
+export const navLinks = [
+  { label: "Novo Condomínio", route: "/property/create" },
+  { label: "Novo Condomínio", route: "/property/edit" },
+];
 export const footerLinks = [
   {
     title: "About",
