@@ -12,7 +12,7 @@ const layout = ({
       <div className="flex flex-col w-full">
         <HeaderBar />
         <div>
-          <div className="flex w-full flex-col overflow-x-hidden items-center justify-between p-4">
+          <div className="flex w-full flex-col overflow-x-hidden items-center p-4">
             {children}
           </div>
         </div>
