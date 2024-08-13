@@ -1,4 +1,5 @@
 "use client";
+import AltPropertyCard from "@/components/Cards/AltPropertyCard";
 import PropertyCard from "@/components/Cards/PropertyCard";
 import Searchbar from "@/components/UiCustom/Searchbar";
 import { fetchProperties } from "@/lib/api/fetchProperties";
@@ -50,7 +51,7 @@ const AllProperties = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {filteredProperties.map((property) => (
               <div key={property.id} className="mb-4 mr-2">
-                <PropertyCard property={property} />
+                <AltPropertyCard property={property} />
               </div>
             ))}
           </div>
