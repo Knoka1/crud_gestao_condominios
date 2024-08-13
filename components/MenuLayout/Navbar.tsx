@@ -1,12 +1,20 @@
 "use client";
 import React from "react";
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../ui/sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from "../ui/sheet";
 import Link from "next/link";
 import { navLinks } from "@/constants";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Logo from "./Logo";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 const Navbar = () => {
   const pathname = usePathname();
   return (
@@ -16,6 +24,12 @@ const Navbar = () => {
           <GiHamburgerMenu size={20} className="mt-1" />
         </SheetTrigger>
         <SheetContent side="left" className="border-none bg-white">
+          <VisuallyHidden>
+            <SheetTitle>Nav links</SheetTitle>
+          </VisuallyHidden>
+          <VisuallyHidden>
+            <SheetDescription>Links da Navbar lateral</SheetDescription>
+          </VisuallyHidden>
           <Link
             href="/"
             className="cursor-pointer flex items-center gap-1 px-4"
