@@ -1,5 +1,5 @@
 "use client";
-import PropertyCard from "@/components/PropertyCard";
+import PropertyCard from "@/components/Cards/PropertyCard";
 import Searchbar from "@/components/UiCustom/Searchbar";
 import { fetchProperties } from "@/lib/api/fetchProperties";
 import React, { useEffect, useState } from "react";
@@ -39,17 +39,17 @@ const AllProperties = () => {
     setFilteredProperties(filtered);
   };
   return (
-    <div className="">
-      <div className="home__filters mb-3 w-full">
+    <div>
+      <div className="home__filters mb-3 w-max-8">
         <Searchbar onSearch={handleSearch} />
       </div>
       {isLoading ? (
         <p>Carregando nossos Condomínios...</p>
       ) : !isDataEmpty ? (
         <section>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 space-x-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {filteredProperties.map((property) => (
-              <div key={property.id} className="mb-2">
+              <div key={property.id} className="mb-4 mr-2">
                 <PropertyCard property={property} />
               </div>
             ))}

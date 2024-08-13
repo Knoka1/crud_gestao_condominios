@@ -4,7 +4,7 @@ import Image from "next/image";
 import logo from "@/public/propertyLogo.png";
 import { CiCalendarDate } from "react-icons/ci";
 import { RiCommunityLine } from "react-icons/ri";
-import CustomButton from "./UiCustom/CustomButton";
+import CustomButton from "../UiCustom/CustomButton";
 import Link from "next/link";
 interface IPropertyCardProps {
   property: Property;

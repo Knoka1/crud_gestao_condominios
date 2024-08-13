@@ -1,10 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Hero from "@/components/Hero";
-import PropertyCard from "@/components/PropertyCard";
-import CustomFilter from "@/components/UiCustom/CustomFilter";
 import Searchbar from "@/components/UiCustom/Searchbar";
 import { fetchProperties } from "@/lib/api/fetchProperties";
+import PropertyCard from "@/components/Cards/PropertyCard";
 
 const Home = () => {
   const [properties, setProperties] = useState<Property[]>([]);
@@ -52,10 +51,6 @@ const Home = () => {
         </div>
         <div className="home__filters mb-3">
           <Searchbar onSearch={handleSearch} />
-          <div className="home__filter-container">
-            <CustomFilter title="inicioAdministracao" />
-            <CustomFilter title="unidades" />
-          </div>
         </div>
 
         {isLoading ? (
