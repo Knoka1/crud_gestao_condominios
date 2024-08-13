@@ -1,7 +1,6 @@
 export const navLinks = [
   { label: "Ver Condomínios", route: "/property/all" },
   { label: "Novo Condomínio", route: "/property/create" },
-  { label: "Editar Condomínio", route: "/property/edit" },
 ];
 export const footerLinks = [
   {
