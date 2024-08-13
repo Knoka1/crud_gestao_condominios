@@ -11,10 +11,12 @@ const Home = () => {
   const [filteredProperties, setFilteredProperties] = useState<Property[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isDataEmpty, setIsDataEmpty] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getProperties = async () => {
       try {
+        setIsLoading(true);
         const fetchedProperties = await fetchProperties();
         setProperties(fetchedProperties);
         setFilteredProperties(fetchedProperties);
@@ -25,6 +27,8 @@ const Home = () => {
         setError(
           "Erro ao buscar as propriedades. Por favor, tente novamente mais tarde."
         );
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -53,7 +57,10 @@ const Home = () => {
             <CustomFilter title="unidades" />
           </div>
         </div>
-        {!isDataEmpty ? (
+
+        {isLoading ? (
+          <p>Carregando nossos Condomínios...</p>
+        ) : !isDataEmpty ? (
           <section>
             <div className="home__property-wrapper">
               {filteredProperties.map((property) => (
