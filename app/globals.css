@@ -87,7 +87,7 @@
 }
 /* END: Home styles */
 
-/* START: Car Card styles */
+/* START: Property Card styles */
 .property-card {
   @apply flex flex-col p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl;
 }
@@ -131,9 +131,12 @@
 .property-card__btn-container {
   @apply hidden group-hover:flex absolute bottom-0 w-full z-10;
 }
-/* END: Car Card styles */
+.alt-property-card__btn-container {
+  @apply hidden group-hover:flex absolute bottom-0 z-10 w-full justify-between;
+}
+/* END: Property Card styles */
 
-/* START: Car Details styles */
+/* START: Property Details styles */
 .property-details__dialog-panel {
   @apply relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5;
 }
@@ -145,7 +148,7 @@
 .property-details__main-image {
   @apply relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg;
 }
-/* END: Car Details styles */
+/* END: Property Details styles */
 
 /* START: Custom Filter styles */
 .custom-filter__btn {
