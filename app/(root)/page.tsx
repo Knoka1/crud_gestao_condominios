@@ -17,7 +17,7 @@ const Home = () => {
       try {
         setIsLoading(true);
         const fetchedProperties = await fetchProperties();
-        setProperties(fetchedProperties);
+        setProperties(fetchedProperties.slice(0, 3));
         setFilteredProperties(fetchedProperties);
         if (fetchedProperties.length === 0) {
           setIsDataEmpty(true);
