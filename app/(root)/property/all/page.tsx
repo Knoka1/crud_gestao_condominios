@@ -5,7 +5,9 @@ import Searchbar from "@/components/UiCustom/Searchbar";
 import { fetchProperties } from "@/lib/api/fetchProperties";
 import { deletePropertyById } from "@/lib/api/deletePropertyById";
 import { useToast } from "@/components/ui/use-toast";
-
+import { Button } from "@/components/ui/button";
+import { IoIosAddCircleOutline } from "react-icons/io";
+import Link from "next/link";
 const AllProperties = () => {
   const [properties, setProperties] = useState<Property[]>([]);
   const [isDataEmpty, setIsDataEmpty] = useState(false);
@@ -66,7 +68,11 @@ const AllProperties = () => {
     <div>
       <div className="home__filters mb-3 w-max-8">
         <Searchbar onSearch={handleSearch} />
-        Add novo
+        <Link href={"create/"}>
+          <Button className="rounded-md bg-cyan-500">
+            <IoIosAddCircleOutline size={20} />
+          </Button>
+        </Link>
       </div>
       {isLoading ? (
         <p>Carregando nossos Condomínios...</p>
