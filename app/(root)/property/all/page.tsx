@@ -1,9 +1,10 @@
 "use client";
+import React, { useEffect, useState } from "react";
 import AltPropertyCard from "@/components/Cards/AltPropertyCard";
-import PropertyCard from "@/components/Cards/PropertyCard";
 import Searchbar from "@/components/UiCustom/Searchbar";
 import { fetchProperties } from "@/lib/api/fetchProperties";
-import React, { useEffect, useState } from "react";
+import { deletePropertyById } from "@/lib/api/deletePropertyById";
+import { useToast } from "@/components/ui/use-toast";
 
 const AllProperties = () => {
   const [properties, setProperties] = useState<Property[]>([]);
@@ -11,6 +12,7 @@ const AllProperties = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [filteredProperties, setFilteredProperties] = useState<Property[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const { toast } = useToast();
 
   useEffect(() => {
     const getProperties = async () => {
@@ -33,16 +35,38 @@ const AllProperties = () => {
 
     getProperties();
   }, []);
+
   const handleSearch = (query: string) => {
     const filtered = properties.filter((property) =>
       property.nome.toLowerCase().includes(query.toLowerCase())
     );
     setFilteredProperties(filtered);
   };
+
+  const handleDelete = async (id: number) => {
+    const response = await deletePropertyById(id);
+    if (response === null) {
+      return toast({
+        title: "Não foi possível deletar",
+        description: "Por favor, tente novamente mais tarde",
+      });
+    } else {
+      const updatedProperties = filteredProperties.filter(
+        (property) => property.id !== id
+      );
+      setFilteredProperties(updatedProperties);
+      return toast({
+        title: "Deletado com Sucesso",
+        description: `Condomínio ${id} deletado com sucesso`,
+      });
+    }
+  };
+
   return (
     <div>
       <div className="home__filters mb-3 w-max-8">
         <Searchbar onSearch={handleSearch} />
+        Add novo
       </div>
       {isLoading ? (
         <p>Carregando nossos Condomínios...</p>
@@ -51,7 +75,10 @@ const AllProperties = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {filteredProperties.map((property) => (
               <div key={property.id} className="mb-4 mr-2">
-                <AltPropertyCard property={property} />
+                <AltPropertyCard
+                  property={property}
+                  onDelete={() => handleDelete(property.id)}
+                />
               </div>
             ))}
           </div>

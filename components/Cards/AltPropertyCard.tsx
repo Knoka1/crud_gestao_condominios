@@ -7,30 +7,19 @@ import Link from "next/link";
 import { FaRegEdit, FaRegBuilding } from "react-icons/fa";
 import { Button } from "../ui/button";
 import WarningAlert from "../Alerts/WarningAlert";
-import { deletePropertyById } from "@/lib/api/deletePropertyById";
-import { useToast } from "@/components/ui/use-toast";
-
 interface IAltPropertyCardProps {
   property: Property;
+  onDelete: () => void;
 }
-const AltPropertyCard = ({ property }: IAltPropertyCardProps) => {
-  const { toast } = useToast();
+
+const AltPropertyCard = ({ property, onDelete }: IAltPropertyCardProps) => {
   const { id, nome, endereco, cnpj, quantidadeUnidades, inicioAdministracao } =
     property;
+
   const handleDelete = async () => {
-    const response: Property | null = await deletePropertyById(id);
-    if (response === null) {
-      return toast({
-        title: "Não foi possível deletar",
-        description: "Por favor, tente novamente mais tarde",
-      });
-    } else {
-      return toast({
-        title: "Deletado com Sucesso",
-        description: `Condomínio ${id} deletado com sucesso`,
-      });
-    }
+    const response = await onDelete();
   };
+
   return (
     <div className="property-card group">
       <div className="property-card__content">
