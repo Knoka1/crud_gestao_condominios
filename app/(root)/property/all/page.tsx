@@ -42,7 +42,7 @@ const AllProperties = () => {
     const filtered = properties.filter(
       (property) =>
         property.nome.toLowerCase().includes(query.toLowerCase()) ||
-        property.endereco.toLowerCase().includes(query.toLocaleLowerCase())
+        property.endereco.toLowerCase().includes(query.toLowerCase())
     );
     setFilteredProperties(filtered);
   };
@@ -86,10 +86,7 @@ const AllProperties = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {filteredProperties.map((property) => (
               <div key={property.id} className="mb-4 mr-2">
-                <AltPropertyCard
-                  property={property}
-                  onDelete={() => handleDelete(property.id)}
-                />
+                <AltPropertyCard property={property} onDelete={handleDelete} />
               </div>
             ))}
           </div>

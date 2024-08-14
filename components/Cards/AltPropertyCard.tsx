@@ -9,15 +9,15 @@ import { Button } from "../ui/button";
 import WarningAlert from "../Alerts/WarningAlert";
 interface IAltPropertyCardProps {
   property: Property;
-  onDelete: () => void;
+  onDelete: (id: number) => void;
 }
 
 const AltPropertyCard = ({ property, onDelete }: IAltPropertyCardProps) => {
   const { id, nome, endereco, cnpj, quantidadeUnidades, inicioAdministracao } =
     property;
 
-  const handleDelete = async () => {
-    return await onDelete();
+  const handleDelete = () => {
+    onDelete(id);
   };
 
   return (
