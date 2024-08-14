@@ -66,10 +66,13 @@ const AllProperties = () => {
 
   return (
     <div>
+      <h1 className="text-4xl font-extrabold">Seus Condomínios</h1>
+      <p className="mt-2">Explore seus Condomínios cadastrados</p>
       <div className="home__filters mb-3 w-max-8">
         <Searchbar onSearch={handleSearch} />
         <Link href={"create/"}>
-          <Button className="rounded-md bg-cyan-500">
+          <Button className="rounded-md bg-green-600">
+            <p className="pr-1">Novo</p>
             <IoIosAddCircleOutline size={20} />
           </Button>
         </Link>
