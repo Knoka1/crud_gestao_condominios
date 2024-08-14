@@ -1,17 +1,19 @@
 import React from "react";
-import CustomButton from "../UiCustom/CustomButton";
 import { CiCalendarDate } from "react-icons/ci";
 import { RiCommunityLine } from "react-icons/ri";
 import Image from "next/image";
 import logo from "@/public/propertyLogo.png";
 import Link from "next/link";
-import { FaRegBuilding } from "react-icons/fa";
+import { FaRegEdit, FaRegBuilding } from "react-icons/fa";
+import { Button } from "../ui/button";
+import WarningAlert from "../Alerts/WarningAlert";
 interface IAltPropertyCardProps {
   property: Property;
 }
 const AltPropertyCard = ({ property }: IAltPropertyCardProps) => {
   const { id, nome, endereco, cnpj, quantidadeUnidades, inicioAdministracao } =
     property;
+  const handleDelete = () => {};
   return (
     <div className="property-card group">
       <div className="property-card__content">
@@ -51,19 +53,14 @@ const AltPropertyCard = ({ property }: IAltPropertyCardProps) => {
         </div>
         <div className="alt-property-card__btn-container">
           {/* Botão Editar */}
-          <CustomButton
-            title="Ver Mais"
-            className="py-[16px] rounded-full bg-cyan-500"
-            textStyles="text-white"
-            rightIcon={true}
-          />
+          <Link href={`all/edit/${id}`}>
+            <Button className="py-[16px] rounded-full bg-cyan-500">
+              <FaRegEdit />
+              <p className="pl-2">Editar</p>
+            </Button>
+          </Link>
           {/* Botão Deletar */}
-          <CustomButton
-            title="Ver Mais"
-            className="py-[16px] rounded-full bg-cyan-500"
-            textStyles="text-white"
-            rightIcon={true}
-          />
+          <WarningAlert handleDelete={handleDelete} />
         </div>
       </div>
     </div>
