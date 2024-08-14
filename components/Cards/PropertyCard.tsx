@@ -14,7 +14,7 @@ const PropertyCard = ({ property }: IPropertyCardProps) => {
   const { id, nome, endereco, cnpj, quantidadeUnidades, inicioAdministracao } =
     property;
   return (
-    <Link href={`property/edit/${id}`}>
+    <Link href={`property/all`}>
       <div className="property-card group">
         <div className="property-card__content">
           <h2 className="property-card__content-title">{nome}</h2>
@@ -51,7 +51,7 @@ const PropertyCard = ({ property }: IPropertyCardProps) => {
           </div>
           <div className="property-card__btn-container">
             <CustomButton
-              title="Ver Mais"
+              title="Ver Todas"
               className="w-full py-[16px] rounded-full bg-cyan-500"
               textStyles="text-white"
               rightIcon={true}
