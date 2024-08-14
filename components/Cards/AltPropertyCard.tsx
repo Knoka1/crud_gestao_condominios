@@ -33,8 +33,9 @@ const AltPropertyCard = ({ property, onDelete }: IAltPropertyCardProps) => {
           alt="Property image"
           src={logo}
           fill
-          priority
           className="object-contain"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          placeholder="blur"
         />
       </div>
       <div className="relative flex w-full mt-2">
