@@ -39,8 +39,10 @@ const AllProperties = () => {
   }, []);
 
   const handleSearch = (query: string) => {
-    const filtered = properties.filter((property) =>
-      property.nome.toLowerCase().includes(query.toLowerCase())
+    const filtered = properties.filter(
+      (property) =>
+        property.nome.toLowerCase().includes(query.toLowerCase()) ||
+        property.endereco.toLowerCase().includes(query.toLocaleLowerCase())
     );
     setFilteredProperties(filtered);
   };
