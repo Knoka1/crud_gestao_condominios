@@ -35,7 +35,7 @@ const WarningAlert = ({ handleDelete }: WarningAlertProps) => {
         <AlertDialogFooter>
           <AlertDialogCancel>Cancelar</AlertDialogCancel>
           <AlertDialogAction
-            onClick={() => handleDelete}
+            onClick={() => handleDelete()}
             className="bg-red-600"
           >
             <MdDeleteOutline />
