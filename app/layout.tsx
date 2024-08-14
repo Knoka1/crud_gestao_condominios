@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Pacifico, Manrope } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 const pacifico = Pacifico({
@@ -32,6 +33,8 @@ export default function RootLayout({
       <body
         className={`${inter.className} ${pacifico.variable} ${manrope.variable}`}
       >
+        <Toaster />
+
         {children}
       </body>
     </html>
