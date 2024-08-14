@@ -17,7 +17,7 @@ const AltPropertyCard = ({ property, onDelete }: IAltPropertyCardProps) => {
     property;
 
   const handleDelete = async () => {
-    const response = await onDelete();
+    return await onDelete();
   };
 
   return (
