@@ -50,12 +50,14 @@ const AltPropertyCard = ({ property }: IAltPropertyCardProps) => {
           </div>
         </div>
         <div className="alt-property-card__btn-container">
+          {/* Botão Editar */}
           <CustomButton
             title="Ver Mais"
             className="py-[16px] rounded-full bg-cyan-500"
             textStyles="text-white"
             rightIcon={true}
           />
+          {/* Botão Deletar */}
           <CustomButton
             title="Ver Mais"
             className="py-[16px] rounded-full bg-cyan-500"
