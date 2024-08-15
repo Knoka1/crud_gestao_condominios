@@ -1,6 +1,9 @@
 "use client";
+import ProprietyFrom from "@/components/ProprietyFrom";
+import { Button } from "@/components/ui/button";
 import { postProperty } from "@/lib/api/postProperty";
 import React from "react";
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 const dummyProperty: Property = {
   id: 123,
@@ -18,12 +21,18 @@ const CreateProperty = () => {
     return response;
   };
   return (
-    <div>
-      <h4>Adicionar uma nova propriedade</h4>
-      <button onClick={() => handleAddNewProperty(dummyProperty)}>
-        Adicionar
-      </button>
-    </div>
+    <section className="">
+      <h1 className="text-4xl font-extrabold">Criar Condomínio</h1>
+      <p className="mt-2">Adicione um novo Condomínio</p>
+      <ProprietyFrom type="new" />
+      <Button
+        className="rounded-md bg-cyan-600"
+        onClick={() => handleAddNewProperty}
+      >
+        <p className="pr-1">Adicionar</p>
+        <IoIosAddCircleOutline size={20} />
+      </Button>
+    </section>
   );
 };
 
