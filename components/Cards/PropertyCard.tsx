@@ -29,8 +29,8 @@ const PropertyCard = ({ property }: IPropertyCardProps) => {
             alt="Property image"
             src={logo}
             fill
-            priority
             className="object-contain"
+            sizes="(max-width: 768px) 60vw, (max-width: 1200px) 30vw, 33vw"
           />
         </div>
         <div className="relative flex w-full mt-2">

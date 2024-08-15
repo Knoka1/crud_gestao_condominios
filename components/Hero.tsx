@@ -32,7 +32,7 @@ const Hero = () => {
             src={logo}
             alt="Hero house image"
             className="object-contain"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes="(max-width: 768px) 80vw, (max-width: 1200px) 40vw, 33vw"
             fill
           />
         </div>
