@@ -7,7 +7,10 @@ const AvatarCustom = () => {
       <p className="hidden md:inline font-pacifico">José Da Silva</p>
 
       <Avatar>
-        <AvatarImage src="https://github.com/shadcn.png" />
+        <AvatarImage
+          src="https://github.com/shadcn.png"
+          alt="Imagem do avatar"
+        />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
     </div>

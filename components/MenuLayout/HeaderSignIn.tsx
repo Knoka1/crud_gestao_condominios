@@ -1,6 +1,5 @@
 import React from "react";
 import { Button } from "../ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import AvatarCustom from "../UiCustom/AvatarCustom";
 
 const HeaderSignIn = () => {
