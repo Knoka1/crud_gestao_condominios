@@ -51,6 +51,7 @@ const AllProperties = () => {
     const response = await deletePropertyById(id);
     if (response === null) {
       return toast({
+        variant: "destructive",
         title: "Não foi possível deletar",
         description: "Por favor, tente novamente mais tarde",
       });
