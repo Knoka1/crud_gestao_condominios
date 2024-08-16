@@ -2,25 +2,36 @@
 import PropertyForm from "@/components/PropertyFrom";
 import { postProperty } from "@/lib/api/postProperty";
 import { useRouter } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
+
 import React from "react";
 
 const CreateProperty = () => {
   const router = useRouter();
+  const { toast } = useToast();
+
   const handleAddNewProperty = async (property: Property) => {
     console.log(property);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    // try {
-    //   const response = await postProperty(property);
-    //   if (!response) {
-    //     setError("Erro ao enviar os dados. Tente novamente.");
-    //   } else {
-    //     // Handle success (e.g., show a success message or redirect)
-    //     console.log("Propriedade criada com sucesso!", response);
-    //   }
-    // } catch (err) {
-    //   setError("Erro ao enviar os dados. Tente novamente.");
-    // }
-    router.push("/property/all");
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      // const response = await postProperty(property);
+      const response = null;
+      if (response === null) {
+        return toast({
+          variant: "destructive",
+          title: "Não foi possível inserir o condomínio",
+          description: `Por favor, tente novamente.`,
+        });
+      } else {
+        router.push("/property/all");
+        return toast({
+          title: "Condomínio inserido com sucesso",
+          description: `O condomínio ${property.nome} foi inserido.`,
+        });
+      }
+    } catch (err) {
+      console.log("Erro ao enviar os dados. Tente novamente.");
+    }
   };
 
   return (
