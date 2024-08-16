@@ -75,7 +75,7 @@ const PropertyPage = ({ params }: IPropertyPageProps) => {
   return (
     <section className="flex flex-col">
       <h1 className="text-4xl font-extrabold">Editar Condomínio</h1>
-      <p className="my-2 mb-4">Altualize as informações do Condomínio</p>
+      <p className="my-2 mb-4">Atualize as informações do Condomínio</p>
       <PropertyForm
         type="edit"
         onSubmit={handleEditProperty}
