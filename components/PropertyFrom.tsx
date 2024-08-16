@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -13,10 +13,12 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "./ui/button";
 import { IoIosAddCircleOutline } from "react-icons/io";
+import { ReloadIcon } from "@radix-ui/react-icons";
 
 interface PropertyFormProps {
   type: "edit" | "new";
   defaultValues?: Partial<z.infer<typeof formSchema>>;
+  onSubmit: (values: z.infer<typeof formSchema>) => void;
 }
 
 // CNPJ Validation Regex
@@ -44,7 +46,9 @@ const formSchema = z.object({
   }),
 });
 
-const PropertyForm = ({ type, defaultValues }: PropertyFormProps) => {
+const PropertyForm = ({ type, defaultValues, onSubmit }: PropertyFormProps) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -54,14 +58,16 @@ const PropertyForm = ({ type, defaultValues }: PropertyFormProps) => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
+  const handleSubmit = async (values: z.infer<typeof formSchema>) => {
+    setIsLoading(true);
     const formattedValues = {
       ...values,
       inicioAdministracao: new Date(values.inicioAdministracao)
         .toISOString()
         .slice(0, 10),
     };
-    console.log(formattedValues);
+    await onSubmit(formattedValues);
+    setIsLoading(false);
   };
 
   const handleCNPJChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,7 +79,7 @@ const PropertyForm = ({ type, defaultValues }: PropertyFormProps) => {
   return (
     <section>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
+        <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-2">
           <FormField
             control={form.control}
             name="nome"
@@ -100,41 +106,43 @@ const PropertyForm = ({ type, defaultValues }: PropertyFormProps) => {
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="cnpj"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>CNPJ</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder="00.000.000/0001-00"
-                    value={field.value}
-                    onChange={handleCNPJChange}
-                    maxLength={18} // 14 dígitos + 4 characteres (dots, slash, hyphen)
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="quantidadeUnidades"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Unidades</FormLabel>
-                <FormControl>
-                  <Input
-                    type="number"
-                    {...field}
-                    onChange={(e) => field.onChange(Number(e.target.value))}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <div className="flex space-x-3">
+            <FormField
+              control={form.control}
+              name="cnpj"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>CNPJ</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="00.000.000/0001-00"
+                      value={field.value}
+                      onChange={handleCNPJChange}
+                      maxLength={18} // 14 dígitos + 4 characteres (dots, slash, hyphen)
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="quantidadeUnidades"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Unidades</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      {...field}
+                      onChange={(e) => field.onChange(Number(e.target.value))}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
           <div className="flex">
             <FormField
               control={form.control}
@@ -149,11 +157,24 @@ const PropertyForm = ({ type, defaultValues }: PropertyFormProps) => {
                 </FormItem>
               )}
             />
-            <Button className="rounded-md bg-cyan-600 ml-24 mt-8" type="submit">
-              <p className="pr-1">
-                {type === "edit" ? "Atualizar" : "Adicionar"}
-              </p>
-              <IoIosAddCircleOutline size={20} />
+            <Button
+              disabled={isLoading}
+              className="rounded-md bg-cyan-600 ml-24 mt-8"
+              type="submit"
+            >
+              {!isLoading ? (
+                <>
+                  <p className="pr-1">
+                    {type === "edit" ? "Atualizar" : "Adicionar"}
+                  </p>
+                  <IoIosAddCircleOutline size={20} />
+                </>
+              ) : (
+                <>
+                  <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+                  <p className="pr-1">Enviando...</p>
+                </>
+              )}
             </Button>
           </div>
         </form>

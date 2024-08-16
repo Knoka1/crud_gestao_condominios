@@ -6,3 +6,11 @@ declare type Property = {
   quantidadeUnidades: number;
   inicioAdministracao: string;
 };
+declare type PropertyFormData = {
+  id?: number;
+  nome?: string | null;
+  endereco?: string | null;
+  cnpj?: string | null;
+  quantidadeUnidades: number;
+  inicioAdministracao: string;
+};
