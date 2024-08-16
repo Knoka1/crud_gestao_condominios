@@ -61,7 +61,6 @@ const PropertyForm = ({ type, defaultValues, onSubmit }: PropertyFormProps) => {
   });
 
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values);
     const date =
       values.inicioAdministracao === ""
         ? new Date().toISOString()
@@ -71,7 +70,6 @@ const PropertyForm = ({ type, defaultValues, onSubmit }: PropertyFormProps) => {
       ...values,
       inicioAdministracao: date,
     };
-    console.log(formattedValues);
     await onSubmit(formattedValues);
     setIsLoading(false);
   };
