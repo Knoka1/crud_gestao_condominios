@@ -2,9 +2,12 @@ import api from "@/services/api";
 import axios from "axios";
 //Still requires testing
 export const putPropertyById = async (
-  id: string,
+  id: number,
   data: Property
 ): Promise<Property | null> => {
+  console.log(id);
+  console.log(data);
+
   try {
     const response = await api.put(`/Condominios/${id}`, data);
     return response.data;

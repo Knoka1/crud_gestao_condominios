@@ -17,7 +17,7 @@ const AltPropertyCard = ({ property, onDelete }: IAltPropertyCardProps) => {
     property;
 
   const handleDelete = () => {
-    onDelete(id);
+    onDelete(Number(id));
   };
 
   return (

@@ -55,7 +55,7 @@ const PropertyForm = ({ type, defaultValues, onSubmit }: PropertyFormProps) => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       quantidadeUnidades: 1,
-      inicioAdministracao: "2024-08-14",
+      inicioAdministracao: new Date().toISOString(),
       ...defaultValues, // Se o tipo for "edit", isso vai dar override nos defaults
     },
   });

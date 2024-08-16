@@ -2,7 +2,7 @@ import api from "@/services/api";
 import axios from "axios";
 
 export const fetchPropertyById = async (
-  id: string
+  id: number
 ): Promise<Property | null> => {
   try {
     const response = await api.get(`/Condominios/${id}`);
