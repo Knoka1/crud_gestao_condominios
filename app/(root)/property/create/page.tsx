@@ -1,5 +1,5 @@
 "use client";
-import PropertyForm from "@/components/PropertyFrom";
+import PropertyForm from "@/components/PropertyForm";
 import { postProperty } from "@/lib/api/postProperty";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
