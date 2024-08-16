@@ -11,11 +11,8 @@ const CreateProperty = () => {
   const { toast } = useToast();
 
   const handleAddNewProperty = async (property: Property) => {
-    console.log(property);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
     try {
-      // const response = await postProperty(property);
-      const response = null;
+      const response = await postProperty(property);
       if (response === null) {
         return toast({
           variant: "destructive",
@@ -30,7 +27,7 @@ const CreateProperty = () => {
         });
       }
     } catch (err) {
-      console.log("Erro ao enviar os dados. Tente novamente.");
+      console.log("Erro ao enviar os dados. Erro:", err);
     }
   };
 

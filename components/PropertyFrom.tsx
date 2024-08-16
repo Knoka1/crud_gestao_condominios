@@ -45,9 +45,7 @@ const formSchema = z.object({
   quantidadeUnidades: z
     .number()
     .min(1, { message: "A unidade precisa pelo menos 1 número." }),
-  inicioAdministracao: z.string().min(10, {
-    message: "Insira uma data válida.",
-  }),
+  inicioAdministracao: z.string(),
 });
 
 const PropertyForm = ({ type, defaultValues, onSubmit }: PropertyFormProps) => {
@@ -63,13 +61,17 @@ const PropertyForm = ({ type, defaultValues, onSubmit }: PropertyFormProps) => {
   });
 
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
+    console.log(values);
+    const date =
+      values.inicioAdministracao === ""
+        ? new Date().toISOString()
+        : new Date(values.inicioAdministracao).toISOString();
     setIsLoading(true);
     const formattedValues = {
       ...values,
-      inicioAdministracao: new Date(values.inicioAdministracao)
-        .toISOString()
-        .slice(0, 10),
+      inicioAdministracao: date,
     };
+    console.log(formattedValues);
     await onSubmit(formattedValues);
     setIsLoading(false);
   };
