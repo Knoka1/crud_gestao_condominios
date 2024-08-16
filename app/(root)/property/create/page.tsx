@@ -6,7 +6,7 @@ import React from "react";
 
 const CreateProperty = () => {
   const router = useRouter();
-  const handleAddNewProperty = async (property: Property) => {
+  const handleAddNewProperty = async (property: PropertyFormData) => {
     console.log(property);
     await new Promise((resolve) => setTimeout(resolve, 2000));
     // try {
