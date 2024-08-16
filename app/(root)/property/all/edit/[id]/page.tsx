@@ -45,6 +45,7 @@ const PropertyPage = ({ params }: IPropertyPageProps) => {
   }, []);
   const handleDelete = async () => {
     await deletePropertyById(Number(params.id));
+    router.push("/property/all");
   };
   const handleEditProperty = async (property: Property) => {
     property.id = Number(params.id);
