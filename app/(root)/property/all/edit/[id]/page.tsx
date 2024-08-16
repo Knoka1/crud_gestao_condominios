@@ -23,10 +23,13 @@ const PropertyPage = ({ params }: IPropertyPageProps) => {
     const fetchProperty = async () => {
       const id = params?.id;
       try {
-        const fetchedProperty = await fetchPropertyById(Number(id));
+        let fetchedProperty = await fetchPropertyById(Number(id));
         if (fetchedProperty === null) {
           setError("Condomínio não encontrado.");
         } else {
+          fetchedProperty["inicioAdministracao"] = fetchedProperty[
+            "inicioAdministracao"
+          ].slice(0, 10);
           setProperty(fetchedProperty);
         }
       } catch (error) {
