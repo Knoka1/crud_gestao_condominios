@@ -33,16 +33,20 @@ const formatCNPJ = (value: string) => {
 };
 
 const formSchema = z.object({
-  nome: z.string(),
-  endereco: z.string(),
+  nome: z
+    .string()
+    .min(3, { message: "O Nome precisa ter ao menos 3 caracteres" }),
+  endereco: z
+    .string()
+    .min(3, { message: "O Endereço precisa ter ao menos 3 caracteres" }),
   cnpj: z.string().refine((value) => CNPJ_REGEX.test(value), {
     message: "CNPJ inválido. O formato esperado é 00.000.000/0001-00.",
   }),
   quantidadeUnidades: z
     .number()
     .min(1, { message: "A unidade precisa pelo menos 1 número." }),
-  inicioAdministracao: z.string({
-    message: "O condomínio precisa de uma data.",
+  inicioAdministracao: z.string().min(10, {
+    message: "Insira uma data válida.",
   }),
 });
 
