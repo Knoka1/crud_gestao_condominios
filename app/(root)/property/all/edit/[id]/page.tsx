@@ -53,7 +53,7 @@ const PropertyPage = ({ params }: IPropertyPageProps) => {
       if (response === null) {
         return toast({
           variant: "destructive",
-          title: "Não foi editar o condomínio",
+          title: "Não foi possível editar o condomínio",
           description: `Por favor, tente novamente.`,
         });
       } else {
