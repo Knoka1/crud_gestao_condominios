@@ -2,16 +2,16 @@ Requisito: Desenvolver uma aplicação web utilizando NextJS, ReactJS e Tailwind
 
 ## Usando:
 
--NextJS: para a estruturação da aplicação.
--ReactJS: para a construção dos componentes.
--TailwindCSS: para a estilização da aplicação.
--shadcn
--zod
+-NextJS: para a estruturação da aplicação.<br />
+-ReactJS: para a construção dos componentes.<br />
+-TailwindCSS: para a estilização da aplicação.<br />
+-shadcn<br />
+-zod<br />
 
 ## 1 Clone o projeto.
 
 ## 2 npm i
 
-## Crie uma .env.local seguindo o exemplo da .env.example e adicione o lik da api
+## 3 Crie uma .env.local seguindo o exemplo da .env.example e adicione o lik da api
 
-## Execute o projeto ;D
+## 4 Execute o projeto ;D
