@@ -6,6 +6,7 @@ import { CiCalendarDate } from "react-icons/ci";
 import { RiCommunityLine } from "react-icons/ri";
 import CustomButton from "../UiCustom/CustomButton";
 import Link from "next/link";
+import { formatDateUTC } from "@/lib/utils";
 interface IPropertyCardProps {
   property: Property;
 }
@@ -45,7 +46,7 @@ const PropertyCard = ({ property }: IPropertyCardProps) => {
             <div className="flex flex-col justify-center items-center gap-2">
               <CiCalendarDate color="#0891b2" />
               <p className="text-[14px]">
-                {new Date(inicioAdministracao).toLocaleDateString()}
+                {formatDateUTC(inicioAdministracao)}
               </p>
             </div>
           </div>

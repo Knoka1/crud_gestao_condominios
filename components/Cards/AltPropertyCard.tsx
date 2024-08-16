@@ -7,6 +7,8 @@ import Link from "next/link";
 import { FaRegEdit, FaRegBuilding } from "react-icons/fa";
 import { Button } from "../ui/button";
 import WarningAlert from "../Alerts/WarningAlert";
+import { formatDateUTC } from "@/lib/utils";
+
 interface IAltPropertyCardProps {
   property: Property;
   onDelete: (id: number) => void;
@@ -53,20 +55,16 @@ const AltPropertyCard = ({ property, onDelete }: IAltPropertyCardProps) => {
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
             <CiCalendarDate color="#0891b2" />
-            <p className="text-[14px]">
-              {new Date(inicioAdministracao).toLocaleDateString()}
-            </p>
+            <p className="text-[14px]">{formatDateUTC(inicioAdministracao)}</p>
           </div>
         </div>
         <div className="alt-property-card__btn-container">
-          {/* Botão Editar */}
           <Link href={`all/edit/${id}`}>
             <Button className="py-[16px] rounded-full bg-cyan-500">
               <FaRegEdit />
               <p className="pl-2">Editar</p>
             </Button>
           </Link>
-          {/* Botão Deletar */}
           <WarningAlert handleDelete={handleDelete} />
         </div>
       </div>
