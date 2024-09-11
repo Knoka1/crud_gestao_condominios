@@ -7,6 +7,10 @@ import type { Config } from "jest";
 
 const config: Config = {
   verbose: true,
+  moduleNameMapper: {
+    "^@/services/(.*)$": "<rootDir>/services/api.ts",
+    "^@/lib/(.*)$": "<rootDir>/lib/api/1$",
+  },
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
